@@ -53,7 +53,7 @@
 			"path": "backends/Staff
 		},
 		{
-			"name": "Companies
+			"name": "Companies"
 			"path": "backends/Companies
 		}
 	],
