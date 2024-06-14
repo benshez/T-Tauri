@@ -59,12 +59,6 @@
 	],
 	"settings": {
 		"files.associations": {
-			"**/BP.*/*": "rocket-mvbasic",
-			"**/BP/*": "rocket-mvbasic",
-			"*.bp": "rocket-mvbasic",
-			"*.pdp": "rocket-mvbasic",
-			"**/YouiLIB/*": "rocket-mvbasic",
-			"*.func": "rocket-mvbasic",
 			"**/.rmv/config/*.json": "jsonc"
 		},
 		"files.exclude": {
