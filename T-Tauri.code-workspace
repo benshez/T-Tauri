@@ -43,6 +43,18 @@
 		{
 			"name": "Underwriting",
 			"path": "backends/Actuarial/Underwriting"
+		},
+		{
+			"name": "Core",
+			"path": "backends/Core"
+		},
+		{
+			"name": "Staff
+			"path": "backends/Staff
+		},
+		{
+			"name": "Companies
+			"path": "backends/Companies
 		}
 	],
 	"settings": {
