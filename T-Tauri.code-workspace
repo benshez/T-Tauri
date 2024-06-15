@@ -1,66 +1,15 @@
 {
 	"folders": [
-		{
-			"name": "Tasks",
-			"path": "backends/Tasks"
+{
+			"name": "Backends",
+			"path": "backends/"
 		},
 		{
-			"name": "Policies",
-			"path": "backends/Policies"
+			"name": "Frontends",
+			"path": "frontends/"
 		},
-		{
-			"name": "Leads",
-			"path": "backends/Leads"
-		},
-		{
-			"name": "Finance",
-			"path": "backends/Finance"
-		},
-		{
-			"name": "Actuarial",
-			"path": "backends/Actuarial"
-		},
-		{
-			"name": "Billing",
-			"path": "backends/Finance/Billing"
-		},
-		{
-			"name": "Creditors",
-			"path": "backends/Finance/Creditors"
-		},
-		{
-			"name": "Debtors",
-			"path": "backends/Finance/Debtors"
-		},
-		{
-			"name": "Taxes",
-			"path": "backends/Finance/Taxes"
-		},
-		{
-			"name": "Rating",
-			"path": "backends/Actuarial/Rating"
-		},
-		{
-			"name": "Underwriting",
-			"path": "backends/Actuarial/Underwriting"
-		},
-		{
-			"name": "Core",
-			"path": "backends/Core"
-		},
-		{
-			"name": "Staff
-			"path": "backends/Staff
-		},
-		{
-			"name": "Companies"
-			"path": "backends/Companies"
-		}
 	],
 	"settings": {
-		"files.associations": {
-			"**/.rmv/config/*.json": "jsonc"
-		},
 		"files.exclude": {
 			"**/.git": true,
 			"**/.svn": true,
