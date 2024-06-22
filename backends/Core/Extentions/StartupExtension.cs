@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Core.Extentions;
+namespace TTauriCore.Extentions;
 
 public static class StartupExtensions
 {

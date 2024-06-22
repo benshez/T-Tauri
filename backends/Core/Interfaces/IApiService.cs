@@ -1,4 +1,4 @@
-﻿namespace Core.Interfaces;
+﻿namespace TTauriCore.Interfaces;
 
 public interface IApiClient<T>
 {

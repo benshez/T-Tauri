@@ -1,6 +1,6 @@
-﻿using Core.Interfaces;
+﻿using TTauriCore.Interfaces;
 
-namespace Core.Services;
+namespace TTauriCore.Services;
 
 public class ApiClient<T>(HttpClient httpClient) : IApiClient<T>
 {

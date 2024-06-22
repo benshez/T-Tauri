@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define variables
-SOLUTION_NAME="../Core.sln"
+SOLUTION_NAME="../T-Tauri-Core.sln"
 OUTPUT_DIR="output"
 PACKAGE_FOLDER="../../.nupkgs"
 
