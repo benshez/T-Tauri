@@ -1,0 +1,17 @@
+build/
+test/
+bin/
+obj/
+output/ 	
+.vs/
+.idea
+.nuget
+.nupkgs
+.vscode
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+user.config
+appsettings.user.json
