@@ -31,7 +31,7 @@ fi
 
 # Clean up the publish folder
 echo "Cleaning up publish folder..."
-rm -rf $PUBLISH_FOLDER
+rm -rf $PUBLISH_FOLDER/../**
 
 # Clean up the package folder
 echo "Cleaning up package files..."
