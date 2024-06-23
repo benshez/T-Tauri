@@ -1,6 +1,6 @@
 ﻿namespace TTauriCore.Interfaces;
 
-public interface IApiClient<T>
+public interface IApiService<T>
 {
     Task<T> GetAsync(string url);
     Task<T> PostAsync(string url, T item);

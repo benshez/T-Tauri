@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# Define variables
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SOLUTION_FILE="T-Tauri-Core.sln"
+PROJECT_NAME="T-Tauri-Core.sln"
+OUTPUT_DIR=".output"
+PACKAGE_FOLDER=".nupkgs"
+PACKAGE_NAME="package.zip"
+PUBLISH_FOLDER=".publish"
+# Clean previous builds
+echo "Cleaning previous build artifacts..."
+dotnet clean
+rm -rf **/bin **/obj
+
+# Restore NuGet packages
+echo "Restoring NuGet packages..."
+dotnet restore
+
+# Build the solution
+echo "Building the solution..."
+dotnet build
+
+# Publish the project
+echo "Publishing the projects..."
+
+# Ensure the solution file exists
+if [ ! -f "$SOLUTION_FILE" ]; then
+    echo "Solution file $SOLUTION_FILE not found."
+    exit 1
+fi
+
+# Get all project paths from the solution file
+PROJECT_PATHS=$(dotnet sln list | grep -E \.csproj$)
+
+# Clean up the publish folder
+echo "Cleaning up publish folder..."
+rm -rf $PUBLISH_FOLDER
+
+# Clean up the package folder
+echo "Cleaning up package files..."
+rm -rf $PACKAGE_FOLDER
+
+# Loop through each project path
+for PROJECT_PATH in $PROJECT_PATHS; do
+    PROJECT_DIR=$(echo $PROJECT_PATH | awk -F '\' '{print $1}')
+    PROJECT_FILE=$(echo $PROJECT_PATH | awk -F '\' '{print $2}')
+    PROJECT_NAME=$(echo $PROJECT_FILE | awk -F '.' '{print $1}')
+
+    # Publish the project
+    echo "Publishing project $PROJECT_NAME into $PUBLISH_FOLDER/$PROJECT_NAME..."
+    dotnet publish -c "Release" -o $PUBLISH_FOLDER/$PROJECT_NAME -r win-x64 --self-contained true   
+
+    # Package the published files into a nuget package
+    echo "Packaging project $PROJECT_NAME into $PACKAGE_FOLDER/$PROJECT_NAME..."
+    dotnet pack -c "Release" -o $PACKAGE_FOLDER/$PROJECT_NAME -v m
+done
+
+echo "All projects publised."    
+
+# Clean up
+echo "Cleaning up temporary files..."
+
+rm -rf $OUTPUT_DIR
+
+echo "Build and packaging completed successfully."

@@ -1,13 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <ItemGroup>
-    <ProjectReference Include="..\Interfaces\T-Tauri-Interfaces.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Net.Http.Formatting.Extension" Version="5.2.3" />
-  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Interfaces\T-Tauri-Interfaces.csproj"/>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0"/>
+    <None Include="README.md" pack="true" PackagePath="." />
+  </ItemGroup>  
 </Project>

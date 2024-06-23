@@ -8,6 +8,8 @@ output/
 .nuget
 .nupkgs
 .vscode
+.publish
+.output
 
 # User-specific files
 *.suo

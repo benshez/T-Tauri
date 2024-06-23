@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace TTauriCore.Extentions;
 
-public static class StartupExtensions
+public static class StartupExtension
 {
     public static IServiceCollection RegisterHttpClientsForUriResources(
         this IServiceCollection services,

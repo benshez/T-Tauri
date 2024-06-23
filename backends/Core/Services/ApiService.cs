@@ -2,7 +2,7 @@
 
 namespace TTauriCore.Services;
 
-public class ApiClient<T>(HttpClient httpClient) : IApiClient<T>
+public class ApiService<T>(HttpClient httpClient) : IApiService<T>
 {
     private readonly HttpClient _httpClient = httpClient;
 
