@@ -5,9 +5,9 @@ output/
 .vs/
 .idea
 .nuget
-.nupkgs
+.nupkgs/
 .vscode
-.publish
+.publish/
 .output
 
 # User-specific files

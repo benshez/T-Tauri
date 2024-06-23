@@ -1,9 +1,12 @@
 #!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+VERSION=$($DIR/version.sh)
+set -e
 
 # Define variables
 SOLUTION_FILE="T-Tauri-Core.sln"
-PACKAGE_FOLDER="../.nupkgs"
-PUBLISH_FOLDER="../.publish"
+PACKAGE_FOLDER="../.nupkgs/$VERSION"
+PUBLISH_FOLDER="../.publish/$VERSION"
 # Clean previous builds
 echo "Cleaning previous build artifacts..."
 dotnet clean
