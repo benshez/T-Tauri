@@ -1,13 +1,11 @@
 #!/bin/bash
 
 # Define variables
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 SOLUTION_FILE="T-Tauri-Core.sln"
-PROJECT_NAME="T-Tauri-Core.sln"
 OUTPUT_DIR=".output"
-PACKAGE_FOLDER=".nupkgs"
+PACKAGE_FOLDER="../.nupkgs"
 PACKAGE_NAME="package.zip"
-PUBLISH_FOLDER=".publish"
+PUBLISH_FOLDER="../.publish"
 # Clean previous builds
 echo "Cleaning previous build artifacts..."
 dotnet clean
@@ -40,6 +38,7 @@ rm -rf $PACKAGE_FOLDER
 
 # Get all project paths from the solution file
 PROJECT_PATHS=$(dotnet sln list | grep -E \.csproj$)
+
 # Loop through each project path
 for PROJECT_PATH in $PROJECT_PATHS; do
     PROJECT_FILE=$(echo $PROJECT_PATH | awk -F '\' '{print $2}')
