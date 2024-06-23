@@ -2,9 +2,7 @@
 
 # Define variables
 SOLUTION_FILE="T-Tauri-Core.sln"
-OUTPUT_DIR=".output"
 PACKAGE_FOLDER="../.nupkgs"
-PACKAGE_NAME="package.zip"
 PUBLISH_FOLDER="../.publish"
 # Clean previous builds
 echo "Cleaning previous build artifacts..."
@@ -54,10 +52,5 @@ for PROJECT_PATH in $PROJECT_PATHS; do
 done
 
 echo "All projects publised."    
-
-# Clean up
-echo "Cleaning up temporary files..."
-
-rm -rf $OUTPUT_DIR
 
 echo "Build and packaging completed successfully."
