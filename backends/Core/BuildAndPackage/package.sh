@@ -30,9 +30,6 @@ if [ ! -f "$SOLUTION_FILE" ]; then
     exit 1
 fi
 
-# Get all project paths from the solution file
-PROJECT_PATHS=$(dotnet sln list | grep -E \.csproj$)
-
 # Clean up the publish folder
 echo "Cleaning up publish folder..."
 rm -rf $PUBLISH_FOLDER
@@ -41,19 +38,20 @@ rm -rf $PUBLISH_FOLDER
 echo "Cleaning up package files..."
 rm -rf $PACKAGE_FOLDER
 
+# Get all project paths from the solution file
+PROJECT_PATHS=$(dotnet sln list | grep -E \.csproj$)
 # Loop through each project path
 for PROJECT_PATH in $PROJECT_PATHS; do
-    PROJECT_DIR=$(echo $PROJECT_PATH | awk -F '\' '{print $1}')
     PROJECT_FILE=$(echo $PROJECT_PATH | awk -F '\' '{print $2}')
     PROJECT_NAME=$(echo $PROJECT_FILE | awk -F '.' '{print $1}')
-
+    
     # Publish the project
     echo "Publishing project $PROJECT_NAME into $PUBLISH_FOLDER/$PROJECT_NAME..."
-    dotnet publish -c "Release" -o $PUBLISH_FOLDER/$PROJECT_NAME -r win-x64 --self-contained true   
+    dotnet publish $PROJECT_PATH -c "Release" -o $PUBLISH_FOLDER/$PROJECT_NAME -r win-x64 --self-contained true   
 
     # Package the published files into a nuget package
     echo "Packaging project $PROJECT_NAME into $PACKAGE_FOLDER/$PROJECT_NAME..."
-    dotnet pack -c "Release" -o $PACKAGE_FOLDER/$PROJECT_NAME -v m
+    dotnet pack $PROJECT_PATH -c "Release" -o $PACKAGE_FOLDER/$PROJECT_NAME -v m
 done
 
 echo "All projects publised."    
