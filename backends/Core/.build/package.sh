@@ -46,14 +46,18 @@ for PROJECT_PATH in $PROJECT_PATHS; do
     PROJECT_NAME=$(echo $PROJECT_FILE | awk -F '.' '{print $1}')
     
     # Publish the project
-    echo "Publishing project $PROJECT_NAME into $PUBLISH_FOLDER/$PROJECT_NAME..."
+    echo "Publishing project $PROJECT_NAME into $PUBLISH_FOLDER/$PROJECT_NAME $VERSION..."
     dotnet publish $PROJECT_PATH -c "Release" -o $PUBLISH_FOLDER/$PROJECT_NAME -r win-x64 --self-contained true   
 
     # Package the published files into a nuget package
-    echo "Packaging project $PROJECT_NAME into $PACKAGE_FOLDER/$PROJECT_NAME..."
+    echo "Packaging project $PROJECT_NAME into $PACKAGE_FOLDER/$PROJECT_NAME $VERSION..."
     dotnet pack $PROJECT_PATH -c "Release" -o $PACKAGE_FOLDER/$PROJECT_NAME -v m
 done
 
 echo "All projects publised."    
+
+# Generate release notes
+echo "Generating release notes for $PROJECT_NAME $VERSION..."
+NOTES=$($DIR/generate-release-notes.sh)
 
 echo "Build and packaging completed successfully."
